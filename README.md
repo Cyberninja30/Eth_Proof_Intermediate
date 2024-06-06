@@ -10,7 +10,7 @@ Solidity ^0.8.18 and Remix IDE
 
 ### deposit_amt(address _address, uint _value)
 
-function deposit_amt(address _address, uint _value) public {
+function deposit_amt (address _address, uint _value) public {
         require(_value > 120, "Deposit value must be greater than 120");
 
         balances[_address] += _value;
@@ -37,7 +37,7 @@ function deposit_amt(address _address, uint _value) public {
 
 ### withdraw_amt(address _address, uint _value)
 
-function withdraw_amt(address _address, uint _value) public {
+function withdraw_amt (address _address, uint _value) public {
         require(balances[_address] >= _value, "Insufficient balance");
 
         balances[_address] -= _value;
@@ -62,9 +62,11 @@ function withdraw_amt(address _address, uint _value) public {
 *After updating the balance, it uses the assert statement to check that the balance of the specified address is non-negative.
 *If the assertion fails, it uses the revert statement to revert the transaction with the message "Withdrawal failed".
 
-## Installation 
-copy the entire code on the Remix IDE on your browser or desktop application and after compiling it deploy the program.
+## Installation:
+
+Copy the entire code on the Remix IDE on your browser or desktop application and after compiling it deploy the program.
 Interact using the given parameters and see the functionality of the error handling.
 
-## License
+## License:
+
 The program uses an MIT License
