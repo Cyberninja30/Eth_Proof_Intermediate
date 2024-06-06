@@ -1,12 +1,12 @@
 # Eth_Proof_Intermediate
 
 # Smart Contract for Handling Errors
-This is a Smart Contract written in Solidity which has three differerent functions which handle error using  `require()`, `revert()` and `assert()` functions
+This is a Smart Contract written in Solidity which has three differerent functions that handle errors using the `require()`, `revert()`, and `assert()` functions
 
 ## Requirements to run the program 
 Solidity ^0.8.18 and Remix IDE
 
-### Function used in the code of Smart Contract 
+## Functions used in the Smart Contract 
 
 ### deposit_amt(address _address, uint _value)
 
