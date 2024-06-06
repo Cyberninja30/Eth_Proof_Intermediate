@@ -1,7 +1,7 @@
 # Eth_Proof_Intermediate
 
 # Smart Contract for Handling Errors
-This is a Smart Contract written in Solidity which has three differerent functions that handle errors using the `require()`, `revert()`, and `assert()` functions
+This is a Smart Contract written in Solidity which has three different functions that handle errors using the `require()`, `revert()`, and `assert()` functions
 
 ## Requirements to run the program 
 Solidity ^0.8.18 and Remix IDE
@@ -9,6 +9,17 @@ Solidity ^0.8.18 and Remix IDE
 ## Functions used in the Smart Contract 
 
 ### deposit_amt(address _address, uint _value)
+
+function deposit_amt(address _address, uint _value) public {
+        require(_value > 120, "Deposit value must be greater than 120");
+
+        balances[_address] += _value;
+
+        assert(balances[_address] >= _value);
+        if (balances[_address] < _value) {
+            revert("Deposit failed");
+        }
+    }
 
 ## Description: 
 *This function allows depositing a certain value into a specified address.
@@ -25,6 +36,17 @@ Solidity ^0.8.18 and Remix IDE
 *If the assertion fails, it uses the revert statement to revert the transaction with the message "Deposit failed".
 
 ### withdraw_amt(address _address, uint _value)
+
+function withdraw_amt(address _address, uint _value) public {
+        require(balances[_address] >= _value, "Insufficient balance");
+
+        balances[_address] -= _value;
+
+        assert(balances[_address] >= 0);
+        if (balances[_address] < 0) {
+            revert("Withdrawal failed");
+        }
+    }
 
 ## Description: 
 *This function allows withdrawing a certain value from a specified address.
