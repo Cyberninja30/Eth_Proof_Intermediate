@@ -1,4 +1,4 @@
-# Eth_Proof_Intermediate
+# Eth_Proof_Intermediate-I
 
 # Smart Contract for Handling Errors
 This is a Smart Contract written in Solidity which has three different functions that handle errors using the `require()`, `revert()`, and `assert()` functions
