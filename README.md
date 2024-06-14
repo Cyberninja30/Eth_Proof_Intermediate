@@ -6,67 +6,83 @@ This is a Smart Contract written in Solidity which has three different functions
 ## Requirements to run the program 
 Solidity ^0.8.18 and Remix IDE
 
-## Functions used in the Smart Contract 
+Here is a README file for the `StudentMarks` contract:
 
-### deposit_amt(address _address, uint _value)
+**StudentMarks Contract**
+==========================
 
-function deposit_amt (address _address, uint _value) public {
-        require(_value > 120, "Deposit value must be greater than 120");
+**Overview**
+------------
 
-        balances[_address] += _value;
+The `StudentMarks` contract is a smart contract written in Solidity that manages student marks. It allows users to add, update, and deduct marks, as well as remove a student's information.
 
-        assert(balances[_address] >= _value);
-        if (balances[_address] < _value) {
-            revert("Deposit failed");
-        }
-    }
+**Functions to be used**
+------------------------
 
-## Description: 
-*This function allows depositing a certain value into a specified address.
+### addStudent
 
-## Parameters:
+* Adds a new student to the contract with the given ID, name, and marks.
+* Requires:
+	+ Student ID must be greater than 0.
+	+ Marks must be between 0 and 100.
+* Emits `StudentAdded` event.
 
-*address _address: The address to which the value will be deposited.
-*uint _value: The amount to be deposited.
+### updateMarks
 
-## Error Handling:
+* Updates the marks of an existing student with the given ID and new marks.
+* Requires:
+	+ Student ID must be greater than 0.
+	+ New marks must be between 0 and 100.
+* Emits `MarksUpdated` event.
 
-*It uses the require statement to ensure that the deposit value is greater than 100. If not, it reverts with the message "Deposit value must be greater than 100".
-*After updating the balance, it uses the assert statement to check that the balance of the specified address is at least as much as the deposited value.
-*If the assertion fails, it uses the revert statement to revert the transaction with the message "Deposit failed".
+### addBonusMarks
 
-### withdraw_amt(address _address, uint _value)
+* Adds bonus marks to an existing student with the given ID and bonus marks.
+* Requires:
+	+ Student ID must be greater than 0.
+	+ Bonus marks must be between 1 and 20.
+	+ Total marks cannot exceed 100.
+* Emits `BonusMarksAdded` event.
 
-function withdraw_amt (address _address, uint _value) public {
-        require(balances[_address] >= _value, "Insufficient balance");
+### deductMarks
 
-        balances[_address] -= _value;
+* Deducts marks from an existing student with the given ID and deducted marks.
+* Requires:
+	+ Student ID must be greater than 0.
+	+ Deducted marks must be between 1 and 20.
+	+ Total marks cannot be negative.
+* Emits `MarksDeducted` event.
 
-        assert(balances[_address] >= 0);
-        if (balances[_address] < 0) {
-            revert("Withdrawal failed");
-        }
-    }
+### removeStudent
 
-## Description: 
-*This function allows withdrawing a certain value from a specified address.
+* Removes a student's information from the contract with the given ID.
+* Requires:
+	+ Student ID must be greater than 0.
+* Emits `StudentRemoved` event.
 
-## Parameters:
+### getStudent
 
-*address _address: The address from which the value will be withdrawn.
-*uint _value: The amount to be withdrawn.
+* Returns the name and marks of a student with the given ID.
+* Requires:
+	+ Student ID must be greater than 0.
 
-## Error Handling:
+**Events**
+------------
 
-*It uses the require statement to ensure that the balance of the specified address is greater than or equal to the withdrawal value. If not, it reverts with the message "Insufficient balance".
-*After updating the balance, it uses the assert statement to check that the balance of the specified address is non-negative.
-*If the assertion fails, it uses the revert statement to revert the transaction with the message "Withdrawal failed".
+* `StudentAdded`: Emitted when a new student is added to the contract.
+* `MarksUpdated`: Emitted when a student's marks are updated.
+* `BonusMarksAdded`: Emitted when bonus marks are added to a student.
+* `MarksDeducted`: Emitted when marks are deducted from a student.
+* `StudentRemoved`: Emitted when a student's information is removed from the contract.
 
-## Installation:
+**License**
+---------
 
-Copy the entire code on the Remix IDE on your browser or desktop application and after compiling it deploy the program.
-Interact using the given parameters and see the functionality of the error handling.
+This contract is licensed under the MIT License.
 
-## License:
+**Author**
+---------
 
-The program uses an MIT License
+Moinak Niyogi
+
+
