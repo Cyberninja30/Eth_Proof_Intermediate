@@ -76,9 +76,6 @@ contract StudentMarks {
 }
 
 /* 
-Hello everyone, today we're going to discuss a smart contract written in Solidity that manages student marks. This contract has several functions to add, 
-update, and deduct marks, as well as remove a student's information.
-
 Code Explanation:
 
 The contract starts by defining a Student struct to store student information, including ID, name, and marks. It also has a mapping to store students and a variable to keep track of the number of students.
