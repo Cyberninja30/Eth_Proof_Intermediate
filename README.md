@@ -25,7 +25,7 @@ Sets a new value for the `value` variable, but only if the new value is greater 
 
 ### `getSquare(uint256 number)`
 
-Returns the square of a given number, but only if the number is positive. Uses `assert` to check an invariant condition.
+Returns the cube of a given number, but only if the number is positive. Uses `assert` to check an invariant condition.
 
 ### `alwaysRevert()`
 
