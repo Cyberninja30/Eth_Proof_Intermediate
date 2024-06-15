@@ -23,7 +23,7 @@ This contract is licensed under the MIT License.
 
 Sets a new value for the `value` variable, but only if the new value is greater than the current value. Uses `require` to validate the condition.
 
-### `getSquare(uint256 number)`
+### `getcube(uint256 number)`
 
 Returns the cube of a given number, but only if the number is positive. Uses `assert` to check an invariant condition.
 
