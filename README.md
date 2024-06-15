@@ -6,83 +6,61 @@ This is a Smart Contract written in Solidity which has three different functions
 ## Requirements to run the program 
 Solidity ^0.8.18 and Remix IDE
 
-Here is a README file for the `StudentMarks` contract:
+Here is a README file for the `Exception` contract:
 
-**StudentMarks Contract**
-==========================
-
-**Overview**
-------------
-
-The `StudentMarks` contract is a smart contract written in Solidity that manages student marks. It allows users to add, update, and deduct marks, as well as remove a student's information.
-
-**Functions to be used**
-------------------------
-
-### addStudent
-
-* Adds a new student to the contract with the given ID, name, and marks.
-* Requires:
-	+ Student ID must be greater than 0.
-	+ Marks must be between 0 and 100.
-* Emits `StudentAdded` event.
-
-### updateMarks
-
-* Updates the marks of an existing student with the given ID and new marks.
-* Requires:
-	+ Student ID must be greater than 0.
-	+ New marks must be between 0 and 100.
-* Emits `MarksUpdated` event.
-
-### addBonusMarks
-
-* Adds bonus marks to an existing student with the given ID and bonus marks.
-* Requires:
-	+ Student ID must be greater than 0.
-	+ Bonus marks must be between 1 and 20.
-	+ Total marks cannot exceed 100.
-* Emits `BonusMarksAdded` event.
-
-### deductMarks
-
-* Deducts marks from an existing student with the given ID and deducted marks.
-* Requires:
-	+ Student ID must be greater than 0.
-	+ Deducted marks must be between 1 and 20.
-	+ Total marks cannot be negative.
-* Emits `MarksDeducted` event.
-
-### removeStudent
-
-* Removes a student's information from the contract with the given ID.
-* Requires:
-	+ Student ID must be greater than 0.
-* Emits `StudentRemoved` event.
-
-### getStudent
-
-* Returns the name and marks of a student with the given ID.
-* Requires:
-	+ Student ID must be greater than 0.
-
-**Events**
-------------
-
-* `StudentAdded`: Emitted when a new student is added to the contract.
-* `MarksUpdated`: Emitted when a student's marks are updated.
-* `BonusMarksAdded`: Emitted when bonus marks are added to a student.
-* `MarksDeducted`: Emitted when marks are deducted from a student.
-* `StudentRemoved`: Emitted when a student's information is removed from the contract.
+**Exception Contract**
+======================
 
 **License**
----------
+--------
 
 This contract is licensed under the MIT License.
 
-**Author**
+**Functions**
+------------
+
+### `setValue(uint256 newValue)`
+
+Sets a new value for the `value` variable, but only if the new value is greater than the current value. Uses `require` to validate the condition.
+
+### `getSquare(uint256 number)`
+
+Returns the square of a given number, but only if the number is positive. Uses `assert` to check an invariant condition.
+
+### `alwaysRevert()`
+
+Always reverts with a custom error message "This function always reverts.". Uses `revert` to explicitly revert the transaction.
+
+**Error Handling**
+----------------
+
+This contract demonstrates three ways to handle errors in Solidity:
+
+* `require`: used to validate input conditions. If the condition is false, the transaction will revert.
+* `assert`: used to check invariant conditions that should never be false. If the condition is false, the contract will halt execution and throw an exception.
+* `revert`: used to explicitly revert a transaction with a custom error message.
+
+**Solidity Version**
+------------------
+
+This contract is written in Solidity version 0.8.18.
+
+**Deployment**
+------------
+
+To deploy this contract, simply compile and deploy it to your preferred Ethereum network.
+
+**Testing**
 ---------
 
-Moinak Niyogi
+To test this contract, you can use a testing framework such as Truffle or Hardhat. Write test cases to exercise each function and verify that the expected behavior occurs.
 
+**Contributing**
+------------
 
+Contributions are welcome! If you'd like to contribute to this contract, please fork the repository and submit a pull request.
+
+**Acknowledgments**
+----------------
+
+This contract was created for educational purposes and is intended to demonstrate error-handling mechanisms in Solidity.
